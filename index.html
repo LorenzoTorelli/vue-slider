@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Carousel</title>
+    </head>
+    <body>
+        
+        <div id="root" class="main">
+            
+            <div class="container">
+                <div id="left-side">
+                    <div class = "l-item " >
+                        <img :src="images[currentImg].image" alt = "slider">
+                        <div class = "text" > 
+                            <h3>{{images[currentImg].titolo}}</h3>
+                            <p>{{images[currentImg].testo}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="right-side">
+                    <div id="slide">
+                        <div class = "d-item" v-for="(img, index) in images" :class="index == currentImg ? 'active' : '' " @click="currentImg = index">
+                            <img :src="images[index].image" alt = "slider">
+                        </div> 
+                    </div>
+                    <i id="arrow-up" class="fas fa-chevron-up" @click="prevImg()"></i>
+                    <i id="arrow-down"class="fas fa-chevron-down" @click="nextImg()"></i>
+                </div>
+            </div>
+            
+            
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="javaScript/script.js"></script>
+
+
+    </body>
+</html>
